@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "server": "nodemon index",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "npm run start --prefix client ",
+    "dev": "concurrently \"npm run server\" \"npm run client\" "
   },
   "author": "Bogdan Kozitskiy",
   "license": "ISC",
@@ -13,5 +15,8 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "mongoose": "^5.3.4"
+  },
+  "devDependencies": {
+    "concurrently": "^4.0.1"
   }
 }
