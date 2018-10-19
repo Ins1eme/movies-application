@@ -45,7 +45,15 @@ const itemSchema = new Schema({
     genre: {
         type: Array,
         required: true
-    }
+    },
+    review: [
+        {
+            comment: String,
+            name: String,
+            email: String,
+        }
+    ]
+
 })
 
 module.exports = mongoose.model('film', itemSchema);
