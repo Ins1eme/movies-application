@@ -14,16 +14,36 @@ const itemSchema = new Schema({
         type: String,
         required: true
     },
+    imageBackgroundUrl: {
+        type: String,
+        required: true
+    },
+    year: {
+        type: Number,
+        required: true
+    },
+    duration: {
+        type: Number,
+        required: true
+    },
+    releaseData: {
+        type: Date,
+        required: true
+    },
     rating: {
         type: Number,
         require: true
     },
-    location: {
+    language: {
+        type: String,
+        required: true
+    },
+    country: {
         type: String,
         required: true
     },
     genre: {
-        type: String,
+        type: Array,
         required: true
     }
 })
