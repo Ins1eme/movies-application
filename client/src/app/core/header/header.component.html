@@ -1,0 +1,35 @@
+<header>
+
+	<app-side-nav  *ngIf="isVisible" [isVisible] = "isVisible" (changeSidenav)="closeSidenav($event)"></app-side-nav>
+
+	<div class="container header-inner">
+		<div class="header-left">
+			<div class="menu-button" (click) = "showSidenav()">
+				<span class="menu-button__line"></span>
+				<span class="menu-button__line"></span>
+				<span class="menu-button__line"></span>
+			</div>
+		
+			<div class="logo">
+				<a class="logo__link">
+					<img src="../../../assets/logo.png" alt="logo" class='logo__image'>
+				</a>
+			</div>
+		</div>
+	
+		<div class=header-right>
+			<form class="films-form">
+				<ng-select class="select-country" [items] = "['Ukraine','Russia','English']" placeholder="Country"></ng-select>
+				<ng-select class="select-genre" [items] = "['Action', 'Drama']" placeholder="Genre"></ng-select>
+
+				<div class="films-moview">
+					<input type="text" placeholder="Movies" class="films-moview__title">
+					<span class='loupe'>
+						<img src="../../../assets//svg/loupe.svg" alt="loupe" class=loupe__img>
+					</span>
+				</div>
+			</form>
+		</div>
+	</div>
+</header>
+

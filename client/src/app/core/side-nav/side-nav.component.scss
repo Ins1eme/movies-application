@@ -1,0 +1,123 @@
+@import '../../../styles-variables.scss';
+
+.sidenav {
+    padding: 100px 50px;
+    width: 340px;
+    position: fixed;
+    background: $lightGrayColor;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    overflow: overlay;
+
+    .sidenav-close {
+        cursor: pointer;
+        background: $blackColor;
+        height: 60px;
+        width: 60px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        overflow: hidden;
+    }
+    .close-button {
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        &__line {
+            position: absolute;
+            display: block;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 22px;
+            height: 3px;
+            background: $whiteColor;
+            transform-origin: 50% 50%;
+
+            &:first-child {
+                transform: rotate(45deg)
+            }
+            &:last-child {
+                transform: rotate(-45deg)
+            }
+        }
+    }
+
+    .sidenav-menu {  
+
+        &__list {
+            padding-left: 30px;
+        }
+
+        &__item {
+            
+        }
+
+        &__link {
+            position: relative;
+            display: inline-block;
+            letter-spacing: 4px;
+            font-size: 14px;
+            color: $blackColor;
+            font-weight: 400;
+            padding: 10px 15px;
+            line-height: 28px;
+
+            &:before {
+                content: '';
+                position: absolute;
+                transition: all .3s cubic-bezier(0.77, 0, 0.175, 1);
+                left: -40px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 20px;
+                height: 1px;
+                background-color: $grayColor;
+            }
+
+            &:hover:before {
+                width: 40px;
+            }
+        }
+    }
+
+    .sidenav-official {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 15px 5px;
+        background-color: $darkGrayColor;
+
+        &__list {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+             
+            li {
+                margin: 0 5px;
+            }
+
+        }   
+
+        &__link {
+            display: block;
+            
+        }
+
+        &__logo {
+            width: 18px;
+        }
+
+        
+    }
+
+    
+}
+
