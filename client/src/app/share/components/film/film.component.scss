@@ -1,0 +1,124 @@
+@import '../../../../styles-variables.scss';
+
+:host {
+    width: 20%;
+}
+
+.movie {
+    display: inline-block;
+    position: relative;
+    user-select: none;
+    overflow: hidden;
+
+    &:hover {
+        cursor: url('../../../../assets/coursor.png'), auto;
+    }
+
+    &:hover img{
+        transform: scale(1.3);
+        opacity: .5;   
+    }
+    &:hover .movie-details {
+        bottom: 30px;
+    }
+    &:hover .play-icon {
+        transform: translate(-50%,-50%) scale(1);
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background-image: linear-gradient(to bottom,rgba(0,0,0,0) 50%,#000 100%);
+        transition: all .3s;
+    }
+
+    .movie-poster {
+        position: relative;
+        background: #000;
+
+        img {
+            cursor: pointer;
+            width: 100%;
+            height: auto;
+            transition: .2s ease; 
+        }
+        
+       
+    }
+    .movie-details {
+        padding: 30px;
+        text-align-last: left;
+        transition: all .3s ease-in-out;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        color: $whiteColor;
+        z-index: 2;
+    }
+
+    .movie-rating {
+        position: relative;
+        margin-bottom: 8px;
+
+        &__summary {
+            display: flex;
+            align-items: center;
+            
+            &:before {
+                content: '';
+                text-align: left;
+                background-image: url('../../../../assets/svg/star.svg');
+                background-repeat: no-repeat;
+                background-size: 18px 16px;
+                display: inline-block;
+                width: 21px;
+                height: 16px;
+                
+            }
+        }
+    }
+
+    .movie-title {
+        cursor: pointer;
+        font-size: 22px;
+        margin-bottom: 8px;
+        transition: all .2s ease-in-out;
+        line-height: 1.1;
+
+        &:hover {
+            color: $orangeColor;
+        }
+    }
+
+    .movie-genre {
+        font-size: 16px;
+    }
+
+    .play-icon {
+        z-index: 4;
+        cursor: pointer;
+        position: absolute;
+        top: 35%;
+        transition: .3s ease-in-out;
+        left: 50%;
+        transform: translate(-50%,-50%) scale(0);
+        width: 120px;
+        height: 120px;
+
+        &__image {
+            display: block;
+            background: url('../../../../assets/svg/play-button.svg') no-repeat;
+            width: 120px;
+            height: 120px;
+            background-size: 120px 120px;
+        }
+    }
+
+    
+}

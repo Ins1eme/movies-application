@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,22 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
   
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent{
 
   isVisible: boolean = false;
-
-  constructor() { }
-
-  ngOnInit() {
-
-  }
 
   showSidenav() {
     this.isVisible = true;
   }
 
   closeSidenav(isVisible) {
-    console.log(isVisible)
     this.isVisible = isVisible
   }
 
