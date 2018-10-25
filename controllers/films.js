@@ -16,14 +16,3 @@ module.exports.getAllFilms = async function(req, res) {
         res.status(200).json(films);
 
 }
-
-module.exports.addFilm = async function(req, res) {
-    try {
-
-        // await film.save()
-        // res.status(201).json(film);
-        
-    } catch(error) {
-        console.log(error);
-    }
-}

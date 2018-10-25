@@ -1,0 +1,109 @@
+@import '../../../styles-variables.scss';
+
+footer {
+    background: url('../../../assets/footer-bg.jpg') no-repeat;
+    padding: 100px 80px;
+    color: $whiteColor;
+
+    .footer-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        & > div{
+            width: 33%;
+            padding: 20px 15px;
+        }
+    }
+    
+
+    
+
+
+
+}
+
+.footer-title {
+    margin-bottom: 35px;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+
+    &__img {
+        width: 35px;
+        margin-right: 20px;
+    }
+
+    &__name {
+        font-size: 20px;
+        font-weight: 400;
+    }
+}
+
+.newsletter {
+    
+    .newsletter-description {
+        word-wrap: break-word;
+        font-size: 16px;
+        line-height: 28px;
+        font-style: normal;
+        font-weight: 300;
+        margin-bottom: 30px;
+    }
+}
+
+.newsletter-form {
+
+    &__email {
+        position: relative;
+        cursor: pointer;
+
+        input {
+            color: white;
+            outline: none;
+            width: 100%;
+            padding: 6px 20px 6px 40px;
+            background: rgba(69,66,72,0.5);
+            border: solid 4px rgba(46,42,48,0.9);
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            background: url('../../../assets/svg/send.svg') no-repeat;
+            width: 40px;
+            height: 40px;
+            background-size: 18px;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background-position: center center;
+        }
+    }
+}
+
+.category {
+
+    &__list {
+
+        li {
+            display: inline-block;
+            width: 50%;
+        }
+
+    }
+
+    &__link {
+        display: inline-block;
+        color: $lightBlackColor;
+        padding: 4px 0;
+        transition: .3s ease-in-out;
+        font-weight: 300;
+        line-height: 28px;
+
+        &:hover {
+            color: $whiteColor;
+        }
+    }
+}
