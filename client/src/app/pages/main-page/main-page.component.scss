@@ -13,28 +13,40 @@ main {
 
 .tabs ::ng-deep {
     .movie {
-        max-width: 270px;
-        width: 100%;
         position: relative;
     
         &:before {
             background: none;
+            content: none;
         }
         &:hover {
             cursor: initial;
         }
-        
+
+        &:hover img {
+            transform: none!important;
+            opacity: initial!important;
+        }
         
     }
 
     .movie-poster {
         overflow: hidden;
+
+        &:hover img{
+            transform: scale(1.3)!important;
+            opacity: .8!important;   
+        }
     }
 
     .movie-details {
         position: static!important;
         color: $blackColor!important;
         padding-left: 0!important;
+    }
+
+    app-film {
+        width: 23%;
     }
     
 }
