@@ -4,6 +4,7 @@ footer {
     background: url('../../../assets/footer-bg.jpg') no-repeat;
     padding: 100px 80px;
     color: $whiteColor;
+    background-size: cover;
 
     .footer-info {
         display: flex;

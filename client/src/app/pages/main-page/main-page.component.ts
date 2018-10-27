@@ -19,5 +19,4 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     this.ds.scrollbarHidden = true;
     this.ds.snapDuration = 200;
   }
-
 }
