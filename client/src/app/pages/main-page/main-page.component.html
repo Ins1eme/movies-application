@@ -11,5 +11,11 @@
 	</drag-scroll>
 	<div class="container">
 
+		<ul class="tab-container">
+			<li *ngFor="let tab of [1,2,3]">
+				<app-film film="Interstellar" (click) = "selectTab(tab)"></app-film>
+			</li>
+		</ul>
+
 	</div>
 </main>
