@@ -1,21 +1,42 @@
 <main>
-	<drag-scroll #nav>
-		<app-film drag-scroll-item [film]="'Inception'"></app-film>
-		<app-film drag-scroll-item [film]= "'Interstellar'"> </app-film>
-		<app-film drag-scroll-item [film]= "'Venom'"></app-film>
-		<app-film drag-scroll-item [film]= "'Fight-club'"></app-film>
-		<app-film drag-scroll-item [film]="'Inception'"></app-film>
-		<app-film drag-scroll-item [film]= "'Interstellar'"> </app-film>
-		<app-film drag-scroll-item [film]= "'Venom'"></app-film>
-		<app-film drag-scroll-item [film]= "'Fight-club'"></app-film>
-	</drag-scroll>
+	<div class="slider-wrap">
+		<drag-scroll #nav>
+			<app-film drag-scroll-item [film]="'Inception'"></app-film>
+			<app-film drag-scroll-item [film]= "'Interstellar'"> </app-film>
+			<app-film drag-scroll-item [film]= "'Venom'"></app-film>
+			<app-film drag-scroll-item [film]= "'Fight-club'"></app-film>
+			<app-film drag-scroll-item [film]="'Inception'"></app-film>
+			<app-film drag-scroll-item [film]= "'Interstellar'"> </app-film>
+			<app-film drag-scroll-item [film]= "'Venom'"></app-film>
+			<app-film drag-scroll-item [film]= "'Fight-club'"></app-film>
+		</drag-scroll>
+	</div>
 	<div class="container">
-
-		<ul class="tab-container">
-			<li *ngFor="let tab of [1,2,3]">
-				<app-film film="Interstellar" (click) = "selectTab(tab)"></app-film>
-			</li>
-		</ul>
-
+		<div class="title">
+			<img src="../../../assets/svg/video-camera.svg" alt="video-camera" class="title__image">
+			<h3 class="title__name">Spotlight This Month</h3>
+		</div>
+		<div class="tabs">
+			<app-tabs>
+				<app-tab [title] = "'Latest'" [active] = 'true'>
+					<app-film [film] = "'Inception'"></app-film>
+					<app-film [film] = "'Fight-club'"></app-film>
+					<app-film [film] = "'Interstellar'"></app-film>
+					<app-film [film] = "'Venom'"></app-film>
+				</app-tab>
+				<app-tab [title] = "'Resently Released'">
+					<app-film [film] = "'Interstellar'"></app-film>
+					<app-film [film] = "'Fight-club'"></app-film>
+					<app-film [film] = "'Venom'"></app-film>
+					<app-film [film] = "'Inception'"></app-film>
+				</app-tab>
+				<app-tab [title] = "'Top Rated'">
+					<app-film [film] = "'Inception'"></app-film>
+					<app-film [film] = "'Interstellar'"></app-film>
+					<app-film [film] = "'Venom'"></app-film>
+					<app-film [film] = "'Fight-club'"></app-film>
+				</app-tab>
+			</app-tabs>
+		</div>		
 	</div>
 </main>

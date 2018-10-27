@@ -1,7 +1,108 @@
+@import '../../../styles-variables.scss';
+
 main {
-    text-align: center;
+    .slider-wrap {
+        margin-bottom: 30px;
+    }
 }
+
 
 ::ng-deep .drag-scroll-content {
     overflow: hidden!important;
+}
+
+.tabs ::ng-deep {
+    .movie {
+        max-width: 270px;
+        width: 100%;
+        position: relative;
+    
+        &:before {
+            background: none;
+        }
+        &:hover {
+            cursor: initial;
+        }
+        
+        
+    }
+
+    .movie-poster {
+        overflow: hidden;
+    }
+
+    .movie-details {
+        position: static!important;
+        color: $blackColor!important;
+        padding-left: 0!important;
+    }
+    
+}
+
+.tabs ::ng-deep {
+    .tabs__list {
+        display: flex;
+        margin-bottom: 30px;
+    }
+
+    .tabs__item {
+        position: relative;
+        margin-right: 20px;
+        cursor: pointer;
+        padding-bottom: 5px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 28px;
+        color: $blackColor;
+
+        &:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: $orangeColor;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    .tabs__item.active {
+        &:before {
+            width: 50%;
+            transition: .2s ease-in-out;
+        }
+    }
+
+    .tab-container {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.title {
+    display: flex;
+    color: $blackColor;
+    align-items: center;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid $darkGrayColor;
+
+    &__name {
+        font-size: 24px;
+        line-height: normal;
+        font-weight: 400;
+        margin-bottom: 0;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    &__image {
+        width: 35px;
+        height: 35px;
+        display: block;
+        margin-right: 15px;
+    }
 }

@@ -40,6 +40,7 @@
     .movie-poster {
         position: relative;
         background: #000;
+        overflow: hidden;
 
         img {
             cursor: pointer;
@@ -85,11 +86,13 @@
     }
 
     .movie-title {
+        display: block;
         cursor: pointer;
         font-size: 22px;
         margin-bottom: 8px;
         transition: all .2s ease-in-out;
         line-height: 1.1;
+        font-weight: 700;
 
         &:hover {
             color: $orangeColor;
