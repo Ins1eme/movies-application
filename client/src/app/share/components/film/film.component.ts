@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Film } from 'src/app/core/interfaces/film';
 
 @Component({
   selector: 'app-film',
@@ -7,7 +8,7 @@ import { Component, Input } from '@angular/core';
 })
 export class FilmComponent {
 
-  @Input() film: any
+  @Input() film: Film
 
   constructor() { }
 

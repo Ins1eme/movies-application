@@ -23,11 +23,7 @@ const itemSchema = new Schema({
         required: true
     },
     duration: {
-        type: Number,
-        required: true
-    },
-    releaseData: {
-        type: Date,
+        type: String,
         required: true
     },
     rating: {
