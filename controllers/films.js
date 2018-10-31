@@ -45,7 +45,8 @@ module.exports.getTabsFilms = async function(req, res) {
             }
         }
     ];
-
+    
+        
     for(let i = 0; i < objTabs.length; i++) {
         let tabName = Object.keys(objTabs[i])[0];
         let tabFilm = await Film.find({}).sort(objTabs[i][tabName]).limit(4);
@@ -53,6 +54,28 @@ module.exports.getTabsFilms = async function(req, res) {
     }
 
     res.status(200).json(film);
+}
+
+module.exports.getFilterFields = async function(req, res) {
+    const filters = {
+        country: [],
+        genre: []
+    };
+    const allFilms = await Film.find({})
+
+    Object.keys(filters).map((filter) => {
+        allFilms.map((film) => {
+            if(typeof film[filter] === 'string') {
+                filters[filter].push(film[filter])
+            } else {
+                film[filter].map((genre) => {
+                    filters[filter].push(genre);
+                })
+            }
+        })
+        filters[filter] = [...new Set(filters[filter])]
+    })
+    res.status(200).json(filters);
 }
 
 

@@ -17,19 +17,9 @@
 			</div>
 		</div>
 	
-		<div class=header-right>
-			<form class="films-form">
-				<ng-select class="select-country" [items] = "['Ukraine','Russia','English']" placeholder="Country"></ng-select>
-				<ng-select class="select-genre" [items] = "['Action', 'Drama']" placeholder="Genre"></ng-select>
-
-				<div class="films-moview">
-					<input type="text" placeholder="Movies" class="films-moview__title">
-					<span class='loupe'>
-						<img src="../../../assets//svg/loupe.svg" alt="loupe" class=loupe__img>
-					</span>
-				</div>
-			</form>
-		</div>
+		
+			<app-filters></app-filters>
+		
 	</div>
 </header>
 

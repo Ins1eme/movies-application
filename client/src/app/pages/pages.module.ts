@@ -4,6 +4,7 @@ import { DragScrollModule } from 'ngx-drag-scroll';
 
 import { ShareModule } from '../share/share.module';
 import { MainPageComponent } from './main-page/main-page.component';
+import { SinglePageComponent } from './single-page/single-page.component';
 
 
 @NgModule({
@@ -11,8 +12,10 @@ import { MainPageComponent } from './main-page/main-page.component';
     CommonModule,
     ShareModule,
     DragScrollModule
-
   ],
-  declarations: [MainPageComponent]
+  declarations: [
+    MainPageComponent, 
+    SinglePageComponent
+  ]
 })
 export class PagesModule { }

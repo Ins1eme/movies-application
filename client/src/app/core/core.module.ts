@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { ShareModule } from '../share/share.module';
+import { FiltersComponent } from './header/filters/filters.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,18 @@ import { ShareModule } from '../share/share.module';
     NgSelectModule,
     ShareModule
   ],
-  declarations: [HeaderComponent, SideNavComponent, FooterComponent],
-  exports: [HeaderComponent, SideNavComponent, FooterComponent, ShareModule]
+  declarations: [
+    HeaderComponent, 
+    SideNavComponent, 
+    FooterComponent, 
+    FiltersComponent
+  ],
+  exports: [
+    HeaderComponent, 
+    SideNavComponent, 
+    FooterComponent,
+    FiltersComponent, 
+    ShareModule
+  ]
 })
 export class CoreModule { }

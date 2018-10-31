@@ -1,5 +1,5 @@
 export interface Review {
-    comment: String,
-    name: String,
-    email: String
+    comment: String;
+    name: String;
+    email: String;
 }

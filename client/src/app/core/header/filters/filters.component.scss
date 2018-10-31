@@ -1,0 +1,70 @@
+@import '../../../../styles-variables.scss';
+
+:host {
+    margin-left: auto;
+}
+.films-form {
+    display: flex;
+}
+
+.films-moview {
+    display: flex;
+    align-items: stretch;
+    position: relative;
+    max-width: 300px;
+    width: 100%;
+
+    &__title {
+        color: $fontColor;
+        outline: none;
+        max-width: 300px;
+        padding: 0 50px 0 20px;
+        border: 1px solid $grayColor;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+}
+.loupe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    width: 40px;
+    height: 100%;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &__img {
+        width: 16px;
+        display: block;
+    }
+}
+
+
+.ng-select.select-country ::ng-deep .ng-select-container  {            
+    border-radius: 0px;
+    border-top-left-radius: 20px;
+    max-width: 160px;
+    border-right: 0;
+    width: 160px;
+    padding-left: 20px;
+}
+
+.ng-select.select-genre ::ng-deep .ng-select-container  {            
+    border-radius: 0px;
+    border-right: 0;
+    width: 160px;
+    padding-left: 20px;
+}
+
+::ng-deep ng-select.ng-select-focused:not(.ng-select-opened)>.ng-select-container {
+    box-shadow: none!important;
+    border-color: $grayColor!important;
+}
+
+::ng-deep .ng-select .ng-select-container .ng-value-container .ng-placeholder {
+    color: $fontColor;
+}
