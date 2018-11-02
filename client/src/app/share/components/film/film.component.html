@@ -3,7 +3,7 @@
       <img src="{{film.imageUrl}}" alt="">
   </div>
 
-  <a class="play-icon">
+  <a class="play-icon" [routerLink] = "['/films', film.title]">
     <div class="play-icon__image"></div>
   </a>
 
@@ -12,7 +12,7 @@
       <span class="movie-rating__summary">{{film.rating}}/10</span>
     </div>
     <div class="movie-name">
-      <a href="#" class="movie-title">
+      <a class="movie-title" [routerLink] = "['/films', film.title]">
       {{film.title}}({{film.year}})
       </a>
       <span class="movie-genre" *ngFor = "let genre of film.genre; let isLast = last">

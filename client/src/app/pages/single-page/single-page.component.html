@@ -1,5 +1,77 @@
-<main>
-  <div class="container">
-      
+<main *ngIf="film$ | async; let film">
+  <div class="film" [ngStyle]="{'background-image':'url('+film.imageBackgroundUrl+')'}">
+      <div class="container">
+			<div class="film-info">
+				<div class="film-info-left">
+					<span class="film-title">{{film.title}} ({{film.year}})</span>
+					<div class="film-genre">
+							<span *ngFor="let genre of film.genre; let isLast = last"> {{genre}}{{isLast ? '' : ", "}}</span>
+						<span> | {{film.duration}}</span>
+					</div>
+					<div class="film-rating">
+						<span class="film-rating__name">Rating</span>
+						<app-rating [rating]="film.rating"></app-rating>
+						<span class="film-rating__count">{{film.rating}}/10</span>
+					</div>
+					<div class="film-social">
+						<app-social></app-social>
+					</div>
+				</div>
+				<div class="film-info-right">
+					<div class="film-star">
+						<img src="../../../assets/svg/big-star.svg" alt="star-rating" class="film-star__image">
+						<span class="film-star__count">{{film.rating}}</span>
+					</div>
+				</div>
+		  </div>
+		  
+      </div>
   </div>
+  <div class="container">
+	<div class="film-details">
+		<div class="film-details-left">
+			<img [src]="film.imageUrl" alt="Inception" class="film-details__img">
+			<div class="movie-info">
+				<span class="movie-info__name">Movie Info</span>
+				<ul class="movie-info__list">
+					<li>
+						<span class="movie-info__list--bold">Release Data:</span> 
+						{{film.year}}
+					</li>
+					<li>
+						<span class="movie-info__list--bold">Genres:</span> 
+						<span *ngFor="let genre of film.genre; let isLast = last"> {{genre}}{{isLast ? '' : ", "}}</span>
+					</li>
+					<li>
+						<span class="movie-info__list--bold">Country:</span>
+						{{film.country}}
+					</li>
+					<li>
+						<span class="movie-info__list--bold">Language:</span>
+						{{film.language}}
+					</li>
+				</ul>
+			</div>
+			</div>
+		<div class="film-details-right">
+			<div class="film-title">
+				<img src="../../../assets/svg/open-book.svg" alt="open-book">
+				<span class="film-title__name">Movie Story</span>
+			</div>
+
+			<div class="film-description">
+				<p>
+					{{film.description}}
+				</p>
+			</div>
+			<div class="film-share">
+				<span class="film-share__name">
+					Share:
+				</span>
+				<app-social></app-social>
+			</div>
+		</div>
+	</div>
+  </div>
+  
 </main>

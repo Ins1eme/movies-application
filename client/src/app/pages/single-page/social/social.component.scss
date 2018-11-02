@@ -1,0 +1,26 @@
+
+
+.social {
+
+    &__list {
+        display: flex;
+        align-items: center;
+    }
+
+    &__item {
+        margin-right: 10px;
+
+        &:last-child {
+            margin-right: 0px;
+        }
+    }
+
+    &__link {
+        display: block;
+
+
+        img {
+            height: 16px;
+        }
+    }
+}

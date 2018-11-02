@@ -1,0 +1,172 @@
+@import '../../../styles-variables.scss';
+
+main {   
+    margin-bottom: 40px;
+}
+
+.film {
+    // background: url('../../../assets/backgrounds/fight_club_tyler_durden_edward_norton_93410_1920x1200.jpg') no-repeat center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding-top: 250px;
+    position: relative;
+    color: $whiteColor;
+    height: 500px;
+
+    &:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 380px;
+        transition: .3s;
+        background-image: linear-gradient(to bottom,rgba(0,0,0,0) 0%,#000000 90%);
+    }
+    
+    .film-info {
+        margin-left: 25%;
+        padding: 40px 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .film-title {
+        display: block;
+        line-height: 40px;
+        font-size: 36px;
+        margin-bottom: 15px;
+    }
+
+    .film-genre {
+        margin-bottom: 25px;
+    }
+
+    .film-rating {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+
+        &__name {
+            display: block;
+            font-size: 16px;
+            font-weight: 600;
+            margin-right: 15px;
+        }
+        &__count {
+            display: block;
+            font-size: 16px;
+            font-weight: 600;
+        }
+    }    
+    .film-info-left {
+        z-index: 1;
+    }
+    
+    .film-info-right {
+        z-index: 1;
+        margin-left: auto;
+    }
+
+    .film-star {
+        position: relative;
+
+        &__count {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 40px;
+            display: block;
+        }
+    }
+}
+
+.film-details {
+    display: flex;
+    
+    &__img {
+        display: block;
+        width: 260px;
+        position: relative;
+        margin-bottom: 35px;
+    }
+
+    
+}
+
+.film-details-left {
+    max-width: 260px;
+    width: 100%;
+    margin-right: 25px;
+    margin-top: -250px;
+
+    .movie-info {
+        &__name {
+            display: block;
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: $blackColor;
+        }
+
+        &__list {
+
+            li {
+                padding: 5px 0;
+                font-size: 16px;
+            }
+            
+            &--bold {
+                font-weight: 600;
+                color: $blackColor;
+            }
+        }
+    }
+}
+.film-details-right {
+    margin-top: 35px;
+
+    .film-title {
+        display: flex;
+        align-items: center;
+        margin-bottom: 35px;
+
+        img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        &__name {
+            font-size: 24px;
+            font-family: 'Montserrat';
+            color: $blackColor;
+        }
+    }
+
+    .film-description {
+
+        p {
+            line-height: 28px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+    }
+
+    .film-share {
+        display: flex;
+        align-items: center;
+        color: $blackColor;
+ 
+        &__name {
+            font-weight: 600;
+            font-size: 16px;
+            margin-right: 15px;
+        }
+    }
+
+}
+
+
+app-rating {
+    margin-right: 15px;
+}

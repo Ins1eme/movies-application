@@ -9,4 +9,7 @@ router.get('/films', controller.getFilms);
 router.get('/films/tabs', controller.getTabsFilms);
 
 router.get('/films/filter', controller.getFilterFields)
+
+router.get('/films/film', controller.getFilmByName)
+
 module.exports = router;

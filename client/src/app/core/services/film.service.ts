@@ -27,4 +27,8 @@ export class FilmService {
     getFiltersOption() : Observable<Filters> {
         return this.http.get<Filters>('http://localhost:5000/api/films/filter')
     }
+
+    getFilmByName(title: string): Observable<Film> {
+        return this.http.get<Film>('http://localhost:5000/api/films/film', {params: {title}})
+    }
 }

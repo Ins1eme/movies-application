@@ -1,0 +1,12 @@
+@import '../../../../styles-variables.scss';
+
+.star {
+    max-width: 20px;
+    
+}
+
+.active-star {
+    .background {
+        fill: $yellowColor;
+    }
+}

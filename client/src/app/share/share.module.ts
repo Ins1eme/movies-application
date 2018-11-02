@@ -6,17 +6,27 @@ import { HttpClientModule } from '@angular/common/http';
 import { FilmComponent } from './components/film/film.component';
 import { TabsComponent } from './components/tabs/tabs.component'
 import { TabComponent } from './components/tabs/tab/tab.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [FilmComponent, TabsComponent, TabComponent],
+  declarations: [
+    FilmComponent, 
+    TabsComponent, 
+    TabComponent,
+  ],
   imports: [
     CommonModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   exports: [
     BrowserAnimationsModule,
-    FilmComponent,FilmComponent, TabsComponent, TabComponent
+    FilmComponent,
+    FilmComponent, 
+    TabsComponent, 
+    TabComponent,
+    RouterModule
   ],
 })
 export class ShareModule { }
