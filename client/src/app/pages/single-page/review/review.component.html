@@ -1,0 +1,52 @@
+<div class="review">
+
+  <div class="review-title">
+    <img src="../../../../assets/svg/review.svg" class="review-title__image" alt="review">
+    <div class="review-title__name">
+      <span>Reviews ({{reviewCount}})</span>
+    </div>
+  </div>
+
+  <div class="review-body">
+    <img src="../../../../assets/svg/avatar.svg" alt="avatar" class="review-body__avatar">
+	<form 
+		class="review-form" 
+		[formGroup] = "reviewForm" 
+		(ngSubmit) = "onSubmit()"
+	>
+		<span class="review-form__title">Leave a Reply</span>
+		<textarea 
+			placeholder="Comment" 
+			class="review-form__comment" 
+			formControlName="comment"
+			[ngClass]="{'invalid': reviewForm.get('comment').invalid && reviewForm.get('comment').touched}"
+		>
+		</textarea>
+		<div class="review-group">
+			<input 
+				placeholder="Name" 
+				type="text" 
+				class="review-group__name" 
+				[ngClass]="{'invalid': reviewForm.get('name').invalid && reviewForm.get('name').touched}" 
+				formControlName="name"
+			>
+			<input 
+				placeholder="Email" 
+				type="text" 
+				class="review-group__email"
+				[ngClass]="{'invalid': reviewForm.get('email').invalid && reviewForm.get('email').touched}"
+				formControlName="email"
+			>
+      	</div> 
+	  	<button 
+			[disabled] = "reviewForm.invalid" 
+			type="submit"
+			class="review-button"
+		>
+			Send Comment
+		</button>
+    </form>
+  </div>
+  
+
+</div>

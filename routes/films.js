@@ -4,6 +4,8 @@ const router = express.Router();
 
 router.get('/films/sort', controller.getSortedMovies);
 
+router.post('/films/review', controller.addReview);
+
 router.get('/films', controller.getFilms);
 
 router.get('/films/tabs', controller.getTabsFilms);

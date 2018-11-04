@@ -1,0 +1,110 @@
+@import '../../../../styles-variables.scss';
+
+.review {
+    margin-bottom: 40px;
+    
+    .review-title {
+        display: flex;
+        align-items: center;
+        margin-bottom: 25px;
+
+        &__image {
+            width: 30px;
+            margin-right: 15px;
+        }
+
+        &__name {
+            font-family: 'Montserrat';
+            font-size: 24px;
+            color: $blackColor;
+        }   
+    }
+
+    .review-body {
+        display: flex;
+        align-items: flex-start;
+
+        &__avatar {
+            width: 68px;
+            margin-right: 30px;
+        }
+    }
+
+    .review-form {
+        display: flex;
+        position: relative;
+        padding: 30px;
+        background: $blueColor;
+        flex-grow: 1;
+        flex-direction: column;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: -20px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: transparent $blueColor transparent transparent;
+        }
+
+        input.invalid, textarea.invalid {
+            border: 1px solid #dc3545;
+        }
+        
+        &__title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #3a3f49;
+        }
+
+        &__comment {
+            height: 190px;
+            resize: none;
+            padding: 6px 12px;
+            border-color: $darkGrayColor;
+            margin-bottom: 30px;
+            outline: none;
+        }
+    }
+
+    .review-group {
+        display: flex;
+        margin-bottom: 30px;
+
+        &__name {
+            flex-grow: 1;
+            margin-right: 30px;
+            padding: 14px 12px;
+            border: 1px solid $darkGrayColor;
+        }
+
+        &__email {
+            flex-grow: 1;
+            margin-left: auto;
+            padding: 6px 12px;
+            border: 1px solid $darkGrayColor;
+        }
+    }
+
+    .review-button {
+        padding: 8px 25px;
+        background: $orangeColor;
+        font-size: 16px;
+        color: $whiteColor;
+        border-radius: 3px;
+        border-style: none;
+        box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+        outline: none;
+        margin-left: auto;
+        transition: .4s ease-in-out;
+
+        &:disabled {
+           opacity: .7;
+           cursor: not-allowed;
+        }
+    }
+
+
+}

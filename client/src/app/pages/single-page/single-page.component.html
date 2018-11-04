@@ -1,4 +1,4 @@
-<main *ngIf="film$ | async; let film">
+<main *ngIf="film">
   <div class="film" [ngStyle]="{'background-image':'url('+film.imageBackgroundUrl+')'}">
       <div class="container">
 			<div class="film-info">
@@ -70,6 +70,37 @@
 				</span>
 				<app-social></app-social>
 			</div>
+			<div class="trailer">
+				<div class="film-title">
+					<img src="../../../assets/svg/camera.svg" alt="open-book">
+					<span class="film-title__name">Trailers & Videos</span>
+				</div>
+
+				<iframe width="100%" height="500px" src="https://www.youtube.com/embed/zSWdZVtXT7E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+			</div>
+			<app-review (onSubmitForm) = "submitForm($event)" [reviewCount] = 'reviewCount' ></app-review>
+
+			<div class="review">
+				<ul class="review__list">
+					<li *ngFor="let review of film.review.reverse()" class="review__item">
+						<div class="review-person">
+							<img src="../../../assets/svg/person.svg" alt="person" class="review-person__image">
+							<span class="review-person__name">{{review.name}}</span>
+							<span class="review-person__email">{{review.email}}</span>
+						</div>
+						<div class="review-comment">
+							<p>
+								{{review.comment}}
+							</p>
+						</div>
+
+						<span class="review-date">{{review.date | date}}</span>
+					</li>
+				</ul>
+			</div>
+
+			
 		</div>
 	</div>
   </div>

@@ -47,6 +47,7 @@ const itemSchema = new Schema({
             comment: String,
             name: String,
             email: String,
+            date: Date
         }
     ]
 

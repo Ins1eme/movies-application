@@ -83,10 +83,25 @@ module.exports.getFilmByName = async function (req, res) {
   res.status(200).json(film);
 }
 
+module.exports.addReview = async function (req, res) {
+
+  const review = [{
+    comment: req.body.comment,
+    name: req.body.name,
+    email: req.body.email,
+    date: new Date()
+  }] 
+  const filmReview = await Film.findOneAndUpdate(
+    {title: req.body.title},
+    {$push: {review }}
+  )
+  res.status(201).json(review)
+  
+}
+
 
 function shuffle(a) {
-  let j; var x; var 
-i;
+  let j; var x; var i;
   for (i = a.length - 1; i > 0; i--) {
     j = Math.floor(Math.random() * (i + 1));
     x = a[i];
