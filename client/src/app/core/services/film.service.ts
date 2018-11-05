@@ -6,9 +6,7 @@ import { Tabs } from '../interfaces/tabs';
 import { Filters } from '../interfaces/filters';
 import { Review } from '../interfaces/review';
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 
 export class FilmService {
 
@@ -36,4 +34,12 @@ export class FilmService {
     addReview(review): Observable<Review> {
         return this.http.post<Review>('http://localhost:5000/api/films/review', review)
     } 
+
+    getSortedFilm(filter: Filters): Observable<Film[]> {
+        return this.http.get<Film[]>('http://localhost:5000/api/films/sort', {
+            params: {
+               ...filter
+            }
+        })
+    }
 }

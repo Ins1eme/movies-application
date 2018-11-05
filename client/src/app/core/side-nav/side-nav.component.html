@@ -9,16 +9,9 @@
   <div class="sidenav-inner">
     <nav class="sidenav-menu">
       <ul class="sidenav-menu__list">
-        <li class="sidenav-menu__item"><a href="" class="sidenav-menu__link">Action</a></li>
-        <li class="sidenav-menu__item"><a href="" class="sidenav-menu__link">Adventure</a></li>
-        <li class="sidenav-menu__item"><a href="" class="sidenav-menu__link">Comedy</a></li>
-        <li class="sidenav-menu__item"><a href="" class="sidenav-menu__link">Drama</a></li>
-        <li class="sidenav-menu__item"><a href="" class="sidenav-menu__link">Horror</a></li>
-        <li class="sidenav-menu__item"><a href="" class="sidenav-menu__link">Werstern</a></li>
-        <li class="sidenav-menu__item"><a href="" class="sidenav-menu__link">Musicals</a></li>
-        <li class="sidenav-menu__item"><a href="" class="sidenav-menu__link">Historical</a></li>
-        <li class="sidenav-menu__item"><a href="" class="sidenav-menu__link">Grime</a></li>
-        <li class="sidenav-menu__item"><a href="" class="sidenav-menu__link">Science Fiction</a></li>
+        <li class="sidenav-menu__item" *ngFor="let navigation of navigations$ | async">
+          <a (click) = "setFilter(navigation)" [routerLink] = "['/films']" class="sidenav-menu__link">{{navigation}}</a>
+        </li>
       </ul>
     </nav>
   </div>

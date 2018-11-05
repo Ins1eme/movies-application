@@ -3,7 +3,13 @@ const Film = require('../models/film');
 
 module.exports.getSortedMovies = async function (req, res) {
 
-  const filmQueryArray = Object.keys(req.query);
+  const filmQueryArray = []
+  for(let prop in req.query) {
+    if(req.query[prop] !== "null") {
+      filmQueryArray.push(prop)
+    }
+  }
+  
   const film = {};
 
   filmQueryArray.map((elem) => {
@@ -80,7 +86,10 @@ module.exports.getFilterFields = async function (req, res) {
 
 module.exports.getFilmByName = async function (req, res) {
   const film = await Film.findOne({title: req.query.title});
+
+
   res.status(200).json(film);
+
 }
 
 module.exports.addReview = async function (req, res) {

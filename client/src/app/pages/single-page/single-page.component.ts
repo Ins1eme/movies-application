@@ -6,6 +6,7 @@ import { takeUntil, switchMap, map } from 'rxjs/operators';
 import { FilmService } from 'src/app/core/services/film.service';
 import { Film } from 'src/app/core/interfaces/film';
 import { Review } from 'src/app/core/interfaces/review';
+import { LoaderService } from 'src/app/core/services/loader.service';
 
 @Component({
   selector: 'app-single-page',
@@ -22,21 +23,28 @@ export class SinglePageComponent implements OnInit, OnDestroy {
 
   constructor(
     private filmService: FilmService,
-    private acRoute: ActivatedRoute
+    private acRoute: ActivatedRoute,
+    private loaderService: LoaderService
   ) { }
 
   ngOnInit() {
-    this.acRoute.params.pipe(
-      takeUntil(this.destroy$),
-      map(params => {
-        this.title = params['id']
-        return params['id']
-      }),
-      switchMap(id => this.filmService.getFilmByName(id))
-    ).subscribe((film: Film) => {
-      this.film = film
-      this.reviewCount = this.film.review.length
-    })
+	  
+    this.loaderService.setLoaderState(true)
+
+	this.acRoute.params
+		.pipe(
+			takeUntil(this.destroy$),
+			map(params => {
+				this.title = params['id']
+				return params['id']
+			}),
+			switchMap(id => this.filmService.getFilmByName(id))
+		)
+		.subscribe((film: Film) => {
+			this.film = film
+			this.reviewCount = this.film.review.length
+			this.loaderService.setLoaderState(false)
+		})
   }
 
   submitForm(event) {
@@ -47,12 +55,14 @@ export class SinglePageComponent implements OnInit, OnDestroy {
       title: this.title
     }
 
-    this.filmService.addReview(review).pipe(
-      takeUntil(this.destroy$)
-    ).subscribe((review: Review) => {
-      this.film.review = this.film.review.concat(review)
-      this.reviewCount = this.film.review.length
-    })
+	this.filmService.addReview(review)
+		.pipe(
+			takeUntil(this.destroy$)
+		)
+		.subscribe((review: Review) => {
+			this.film.review = this.film.review.concat(review)
+			this.reviewCount = this.film.review.length
+		})
   }
 
   ngOnDestroy() {

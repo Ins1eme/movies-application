@@ -1,5 +1,9 @@
-import { Component, Input, Output, EventEmitter, HostListener, ElementRef } from '@angular/core';
+import { Component, Input, Output, EventEmitter, HostListener, ElementRef, OnInit } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { NavigationService } from '../services/navigation.service';
+import { Observable } from 'rxjs';
+import { FilterService } from '../services/filter.service';
+import { Filters } from '../interfaces/filters';
 
 @Component({
   selector: 'app-side-nav',
@@ -28,12 +32,22 @@ import { trigger, transition, style, animate } from '@angular/animations';
   
 })
 
-export class SideNavComponent {
+export class SideNavComponent implements OnInit{
+  navigations$: Observable<string[]>
 
   @Input() isVisible: boolean;
   @Output() changeSidenav: EventEmitter<boolean> = new EventEmitter()
 
-  constructor(private eRef: ElementRef) {}
+  constructor(
+    private eRef: ElementRef,
+    private navigationService: NavigationService,
+    private filterService: FilterService
+  ) {}
+
+  ngOnInit() {
+    this.navigations$ = this.navigationService.getNavigation()
+    
+  }
 
   @HostListener('document:click', ['$event'])
   clickOutSidenav(event) {
@@ -43,6 +57,11 @@ export class SideNavComponent {
     }
   }
 
+  setFilter(genre) {
+    const filters: Filters = { genre }
+    this.filterService.setFiltersValues(filters)
+    this.closeSidenav()
+  }
 
 
   closeSidenav() {

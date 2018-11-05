@@ -1,8 +1,12 @@
-import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+
 import { FilmService } from '../../services/film.service';
 import { Filters } from '../../interfaces/filters';
-import { takeUntil, filter } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { FilterService } from '../../services/filter.service';
 
 @Component({
   selector: 'app-filters',
@@ -10,13 +14,15 @@ import { Subject } from 'rxjs';
   styleUrls: ['./filters.component.scss']
 })
 export class FiltersComponent implements OnInit, OnDestroy {
-
+  filtersForm: FormGroup
   filters: Filters
   destroy$: Subject<boolean> = new Subject;
 
-  constructor(
-    private filmService: FilmService
-  ) { }
+	constructor(
+		private filmService: FilmService,
+		private filterService: FilterService,
+		private router: Router
+	) { }
 
   ngOnInit() {
     this.filmService.getFiltersOption()
@@ -26,9 +32,20 @@ export class FiltersComponent implements OnInit, OnDestroy {
     .subscribe((filters: Filters) => {
       this.filters = filters
     })
+
+    this.filtersForm = new FormGroup({
+      genre: new FormControl(null),
+      country: new FormControl(null),
+      title: new FormControl(null)
+    })
   }
 
-  ngOnDestroy() {
-    this.destroy$.next()
-  }
+	onSubmit() {
+		this.filterService.setFiltersValues(this.filtersForm.value)
+		this.router.navigate(['/films'])
+  	}
+
+	ngOnDestroy() {
+		this.destroy$.next(true)
+	}
 }

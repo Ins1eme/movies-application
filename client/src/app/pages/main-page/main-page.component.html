@@ -1,7 +1,7 @@
 <main>
 	<div class="slider-wrap">
 		<drag-scroll #nav>
-			<app-film drag-scroll-item *ngFor = "let film of films$ | async" [film]="film" ></app-film>
+			<app-film drag-scroll-item *ngFor = "let film of films" [film]="film" ></app-film>
 		</drag-scroll>
 	</div>
 	<div class="container">

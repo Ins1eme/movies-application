@@ -8,6 +8,10 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { ShareModule } from '../share/share.module';
 import { FiltersComponent } from './header/filters/filters.component';
+import { FilmService } from './services/film.service';
+import { LoaderService } from './services/loader.service';
+import { FilterService } from './services/filter.service';
+import { NavigationService } from './services/navigation.service';
 
 @NgModule({
   imports: [
@@ -27,6 +31,12 @@ import { FiltersComponent } from './header/filters/filters.component';
     FooterComponent,
     FiltersComponent, 
     ShareModule
+  ],
+  providers: [
+    FilmService,
+    LoaderService,
+    FilterService,
+    NavigationService
   ]
 })
 export class CoreModule { }

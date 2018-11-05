@@ -7,26 +7,35 @@ import { FilmComponent } from './components/film/film.component';
 import { TabsComponent } from './components/tabs/tabs.component'
 import { TabComponent } from './components/tabs/tab/tab.component';
 import { RouterModule } from '@angular/router';
+import { LoaderComponent } from './components/loader/loader.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     FilmComponent, 
     TabsComponent, 
     TabComponent,
+    LoaderComponent
+
   ],
   imports: [
     CommonModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     BrowserAnimationsModule,
+    ReactiveFormsModule,
+    RouterModule,
+    FormsModule,
     FilmComponent,
     FilmComponent, 
     TabsComponent, 
     TabComponent,
-    RouterModule
+    LoaderComponent,
   ],
 })
 export class ShareModule { }

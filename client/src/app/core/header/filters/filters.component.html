@@ -1,12 +1,12 @@
 <div class=header-right *ngIf="filters">
-  <form class="films-form">
-    <ng-select class="select-country" [items] = "filters.country" placeholder="Country"></ng-select>
-    <ng-select class="select-genre" [items] = "filters.genre" placeholder="Genre"></ng-select>
+  <form class="films-form" [formGroup] = "filtersForm" (ngSubmit) = "onSubmit()">
+    <ng-select class="select-country" [items] = "filters.country" placeholder="Country" formControlName = "country"></ng-select>
+    <ng-select class="select-genre" [items] = "filters.genre" placeholder="Genre" formControlName = "genre"></ng-select>
 
     <div class="films-moview">
-      <input type="text" placeholder="Movies" class="films-moview__title">
+      <input type="text" placeholder="Movies" class="films-moview__title" formControlName = "title">
       <span class='loupe'>
-        <img src="../../../assets//svg/loupe.svg" alt="loupe" class=loupe__img>
+        <img src="../../../assets//svg/loupe.svg" alt="loupe" class=loupe__img (click) = "onSubmit()" >
       </span>
     </div>
   </form>

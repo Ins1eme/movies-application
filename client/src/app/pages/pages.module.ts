@@ -8,7 +8,7 @@ import { SinglePageComponent } from './single-page/single-page.component';
 import { RatingComponent } from './single-page/rating/rating.component';
 import { SocialComponent } from './single-page/social/social.component';
 import { ReviewComponent } from './single-page/review/review.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ListPageComponent } from './list-page/list-page.component';
 
 
 @NgModule({
@@ -17,13 +17,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 		SinglePageComponent,
 		RatingComponent,
 		SocialComponent,
-		ReviewComponent
+		ReviewComponent,
+		ListPageComponent
 	],
 	imports: [
 		CommonModule,
 		ShareModule,
 		DragScrollModule,
-		ReactiveFormsModule
 	]
 })
 export class PagesModule { }

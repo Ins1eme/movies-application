@@ -21,16 +21,9 @@
               <span class="footer-title__name">Movies Category</span>
           </div>
           <ul class="category__list">
-            <li><a href="" class="category__link">Action</a></li>
-            <li><a href="" class="category__link">Animation</a></li>
-            <li><a href="" class="category__link">Comedy</a></li>
-            <li><a href="" class="category__link">Documentary</a></li>
-            <li><a href="" class="category__link">Family</a></li>
-            <li><a href="" class="category__link">Adventure</a></li>
-            <li><a href="" class="category__link">Biography</a></li>
-            <li><a href="" class="category__link">Crime</a></li>
-            <li><a href="" class="category__link">Drama</a></li>
-            <li><a href="" class="category__link">Fantasy</a></li>
+            <li *ngFor="let navigation of navigations$ | async">
+              <a (click) = "setFilter(navigation)" [routerLink] = "['/films']" class="category__link">{{navigation}}</a>
+            </li>
           </ul>
       </div>
       <div class="news">
