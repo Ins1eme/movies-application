@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, HostListener, ElementRef, OnInit } from '@angular/core';
-import { trigger, transition, style, animate } from '@angular/animations';
+import { trigger, transition, style, animate, state } from '@angular/animations';
 import { NavigationService } from '../services/navigation.service';
 import { Observable } from 'rxjs';
 import { FilterService } from '../services/filter.service';
@@ -11,20 +11,20 @@ import { Filters } from '../interfaces/filters';
   styleUrls: ['./side-nav.component.scss'],
   animations: [
     trigger('toogleSidenav',[
+      transition('* => void', [
+        style({
+          transform: 'translateX(0px)',
+        }),
+        animate('700ms cubic-bezier(0.77, 0, 0.175, 1)', style({
+          transform: 'translateX(-340px)'
+        }))
+      ]),
       transition(':enter', [
         style({
           transform: 'translateX(-340px)',
         }),
         animate('700ms cubic-bezier(0.77, 0, 0.175, 1)', style({
           transform: 'translateX(0px)'
-        }))
-      ]),
-      transition(':leave', [
-        style({
-          transform: 'translateX(0px)',
-        }),
-        animate('700ms cubic-bezier(0.77, 0, 0.175, 1)', style({
-          transform: 'translateX(-340px)'
         }))
       ])
     ])
@@ -46,7 +46,6 @@ export class SideNavComponent implements OnInit{
 
   ngOnInit() {
     this.navigations$ = this.navigationService.getNavigation()
-    
   }
 
   @HostListener('document:click', ['$event'])

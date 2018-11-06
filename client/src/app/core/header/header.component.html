@@ -1,6 +1,6 @@
 <header>
 
-	<app-side-nav  *ngIf="isVisible" [isVisible] = "isVisible" (changeSidenav)="closeSidenav($event)"></app-side-nav>
+	<app-side-nav  [isVisible] = "isVisible" (changeSidenav) = "changeSidenav($event)"></app-side-nav>
 
 	<div class="container header-inner">
 		<div class="header-left">

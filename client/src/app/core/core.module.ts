@@ -23,7 +23,7 @@ import { NavigationService } from './services/navigation.service';
     HeaderComponent, 
     SideNavComponent, 
     FooterComponent, 
-    FiltersComponent
+    FiltersComponent,
   ],
   exports: [
     HeaderComponent, 

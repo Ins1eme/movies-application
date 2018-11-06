@@ -6,10 +6,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { ShareModule } from './share/share.module';
 import { PagesModule } from './pages/pages.module';
+import { SafePipe } from './core/pipes/SafePipe.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -18,7 +19,8 @@ import { PagesModule } from './pages/pages.module';
     ShareModule,
     PagesModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

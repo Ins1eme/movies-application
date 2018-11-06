@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, forkJoin, concat } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { DragScrollComponent } from 'ngx-drag-scroll/lib';
 
@@ -27,26 +27,17 @@ export class MainPageComponent implements OnInit, AfterViewInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-
-
-	this.loaderService.setLoaderState(true)
-	
-    this.filmService.getFilms()
-    	.pipe(
-			  takeUntil(this.destroy$)
-		  )
-      .subscribe((films: Film[]) => {
-        this.films = films
+    this.loaderService.setLoaderState(true)
+    
+    forkJoin(this.filmService.getFilms(), this.filmService.getTabsFilm())
+      .pipe(
+        takeUntil(this.destroy$)
+      )
+      .subscribe((data) => {
+        this.films = data[0]
+        this.tabs = data[1]
+        this.loaderService.setLoaderState(false)
       })
-	
-  this.filmService.getTabsFilm()
-		.pipe(
-			takeUntil(this.destroy$)
-		)
-		.subscribe((tabs: Tabs) => {
-			this.tabs = tabs
-			this.loaderService.setLoaderState(false)
-		})
   }
   
   ngAfterViewInit() {

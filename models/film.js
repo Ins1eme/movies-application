@@ -42,6 +42,10 @@ const itemSchema = new Schema({
         type: Array,
         required: true
     },
+    trailerUrl: {
+        type: String,
+        required: true
+    },
     review: [
         {
             comment: String,

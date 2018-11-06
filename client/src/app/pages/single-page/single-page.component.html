@@ -75,9 +75,7 @@
 					<img src="../../../assets/svg/camera.svg" alt="open-book">
 					<span class="film-title__name">Trailers & Videos</span>
 				</div>
-
-				<iframe width="100%" height="500px" src="https://www.youtube.com/embed/zSWdZVtXT7E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+				<iframe width="100%" height="500px" [src]="film.trailerSrc | safe" frameborder="0"  allowfullscreen></iframe>
 			</div>
 			<app-review (onSubmitForm) = "submitForm($event)" [reviewCount] = 'reviewCount' ></app-review>
 

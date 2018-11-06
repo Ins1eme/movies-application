@@ -9,4 +9,4 @@
 </div>
 
 
-<app-loader *ngIf="loaderState$ | async"></app-loader>
+<app-loader [hidden]="!(loaderState$ | async)"></app-loader>

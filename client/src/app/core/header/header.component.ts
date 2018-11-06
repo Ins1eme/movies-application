@@ -14,8 +14,8 @@ export class HeaderComponent{
     this.isVisible = true;
   }
 
-  closeSidenav(isVisible) {
-    this.isVisible = isVisible
+  changeSidenav() {
+    this.isVisible = false;
   }
 
 }

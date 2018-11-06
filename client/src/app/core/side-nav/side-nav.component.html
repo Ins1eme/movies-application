@@ -1,4 +1,4 @@
-<div class="sidenav" @toogleSidenav>
+<div  *ngIf="isVisible" class="sidenav" @toogleSidenav>
   <div class="sidenav-close" (click) = "closeSidenav()">
     <div class="close-button">  
       <span class="close-button__line"></span>
