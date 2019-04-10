@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { ShareModule } from './share/share.module';
 import { PagesModule } from './pages/pages.module';
-import { SafePipe } from './core/pipes/SafePipe.pipe';
 
 @NgModule({
   declarations: [

@@ -17,9 +17,9 @@ import { LoaderService } from 'src/app/core/services/loader.service';
 export class SinglePageComponent implements OnInit, OnDestroy {
 
   film: Film
-  destroy$: Subject<boolean> = new Subject()
   title: string
   reviewCount: number
+  destroy$: Subject<boolean> = new Subject()
 
   constructor(
     private filmService: FilmService,
@@ -31,20 +31,20 @@ export class SinglePageComponent implements OnInit, OnDestroy {
 	  
     this.loaderService.setLoaderState(true)
 
-	this.acRoute.params
-		.pipe(
-			takeUntil(this.destroy$),
-			map(params => {
-				this.title = params['id']
-				return params['id']
-			}),
-			switchMap(id => this.filmService.getFilmByName(id))
-		)
-		.subscribe((film: Film) => {
-			this.film = film
-			this.reviewCount = this.film.review.length
-			this.loaderService.setLoaderState(false)
-		})
+    this.acRoute.params
+      .pipe(
+        takeUntil(this.destroy$),
+        map(params => {
+          this.title = params['id']
+          return params['id']
+        }),
+        switchMap(id => this.filmService.getFilmByName(id))
+      )
+      .subscribe((film: Film) => {
+        this.film = film
+        this.reviewCount = this.film.review.length
+        this.loaderService.setLoaderState(false)
+      })
   }
 
   submitForm(event) {
@@ -56,9 +56,7 @@ export class SinglePageComponent implements OnInit, OnDestroy {
     }
 
 	this.filmService.addReview(review)
-		.pipe(
-			takeUntil(this.destroy$)
-		)
+		.pipe(takeUntil(this.destroy$))
 		.subscribe((review: Review) => {
 			this.film.review = this.film.review.concat(review)
 			this.reviewCount = this.film.review.length

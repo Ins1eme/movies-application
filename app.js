@@ -15,11 +15,16 @@ app.use(function(req, res, next) {
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://127.0.0.1:27017/ng-films', {
-    useNewUrlParser: true
-}).then(_ => {
-        console.log('mongoDB connected')
-    })
+mongoose
+  .connect(
+    "mongodb://Bogdan:qwerty1@ds135786.mlab.com:35786/films-application",
+    {
+      useNewUrlParser: true
+    }
+  )
+  .then(_ => {
+    console.log("mongoDB connected");
+  });
     
 mongoose.set('useFindAndModify', false);   
 

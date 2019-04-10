@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
-import { Subject, forkJoin, concat } from 'rxjs';
+import { Subject, forkJoin } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { DragScrollComponent } from 'ngx-drag-scroll/lib';
 
@@ -17,9 +17,9 @@ export class MainPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @ViewChild('nav', {read: DragScrollComponent}) ds: DragScrollComponent
   
-  destroy$: Subject<boolean> = new Subject()
   films: Film[]
   tabs: Tabs
+  destroy$: Subject<boolean> = new Subject()
 
   constructor(
     private filmService: FilmService,
@@ -30,9 +30,7 @@ export class MainPageComponent implements OnInit, AfterViewInit, OnDestroy {
     this.loaderService.setLoaderState(true)
     
     forkJoin(this.filmService.getFilms(), this.filmService.getTabsFilm())
-      .pipe(
-        takeUntil(this.destroy$)
-      )
+      .pipe(takeUntil(this.destroy$))
       .subscribe((data) => {
         this.films = data[0]
         this.tabs = data[1]

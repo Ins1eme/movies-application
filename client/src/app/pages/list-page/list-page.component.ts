@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
-import { switchMap, takeUntil } from 'rxjs/operators';
+import { switchMap, takeUntil, tap } from 'rxjs/operators';
 
 import { FilmService } from 'src/app/core/services/film.service';
 import { FilterService } from 'src/app/core/services/filter.service';
@@ -16,6 +16,7 @@ import { Film } from 'src/app/core/interfaces/film';
 export class ListPageComponent implements OnInit, OnDestroy {
 
 	films: Film[]
+	filter: Filters
 	destroy$: Subject<boolean> = new Subject()
 
 	constructor(
@@ -25,7 +26,9 @@ export class ListPageComponent implements OnInit, OnDestroy {
  	 ) { }
 
   	ngOnInit() {
+		
 		this.loaderService.setLoaderState(true)
+		
     	this.filterService.getFiltersValues()
 			.pipe(
 				takeUntil(this.destroy$),
@@ -37,12 +40,12 @@ export class ListPageComponent implements OnInit, OnDestroy {
 				this.films = films
 				this.loaderService.setLoaderState(false)
 			})
-		this.filterService.getFiltersValues().subscribe(data => console.log(data))
 	}
 
 	ngOnDestroy() {
 		this.destroy$.next(true)
 	}
 
+		
    
 }

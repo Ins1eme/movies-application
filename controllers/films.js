@@ -11,7 +11,6 @@ module.exports.getSortedMovies = async function (req, res) {
   }
   
   const film = {};
-
   filmQueryArray.map((elem) => {
     if (elem === 'title') {
       film[elem] = { $regex: req.query[elem], $options: 'i' };
@@ -19,11 +18,10 @@ module.exports.getSortedMovies = async function (req, res) {
       film[elem] = req.query[elem];
     }
   });
+
   const films = await Film.find(film);
   res.status(200).json(films);
-
-
-};
+}
 
 module.exports.getFilms = async function (req, res) {
   const films = await Film.find({});
@@ -86,10 +84,7 @@ module.exports.getFilterFields = async function (req, res) {
 
 module.exports.getFilmByName = async function (req, res) {
   const film = await Film.findOne({title: req.query.title});
-
-
   res.status(200).json(film);
-
 }
 
 module.exports.addReview = async function (req, res) {
@@ -100,12 +95,11 @@ module.exports.addReview = async function (req, res) {
     email: req.body.email,
     date: new Date()
   }] 
-  const filmReview = await Film.findOneAndUpdate(
+  await Film.findOneAndUpdate(
     {title: req.body.title},
     {$push: {review }}
   )
   res.status(201).json(review)
-  
 }
 
 

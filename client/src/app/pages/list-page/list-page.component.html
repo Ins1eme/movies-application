@@ -1,12 +1,27 @@
 
 <main>
+    <div class="search-banner">
+        <div class="container">
+            <div class="subtitle">
+                <span class="subtitle__text">
+                    Search
+                </span>
+            </div>
+        </div>
+    </div>
     <div class="container">
-        <div class="sort-container">
+        <div class="sort-container" *ngIf="films?.length; else empty">
             <ul class="sort-container__list">   
                 <li class="sort-container__item" *ngFor = "let film of films">
                     <app-film [film]="film" ></app-film>
                 </li>
             </ul>
         </div>
+
+        <ng-template #empty>
+            <p>
+                Not Found
+            </p>
+        </ng-template>
     </div>
 </main>

@@ -1,7 +1,8 @@
 import { Component, Input, Output, EventEmitter, HostListener, ElementRef, OnInit } from '@angular/core';
-import { trigger, transition, style, animate, state } from '@angular/animations';
-import { NavigationService } from '../services/navigation.service';
+import { trigger, transition, style, animate } from '@angular/animations';
 import { Observable } from 'rxjs';
+
+import { NavigationService } from '../services/navigation.service';
 import { FilterService } from '../services/filter.service';
 import { Filters } from '../interfaces/filters';
 

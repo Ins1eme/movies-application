@@ -20,7 +20,7 @@ import { SafePipe } from '../core/pipes/SafePipe.pipe';
 		SocialComponent,
 		ReviewComponent,
 		ListPageComponent,
-		SafePipe
+		SafePipe,
 	],
 	imports: [
 		CommonModule,

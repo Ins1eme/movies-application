@@ -9,11 +9,22 @@ main {
 
 ::ng-deep .drag-scroll-content {
     overflow: hidden!important;
+    display: flex!important;
+}
+app-film {
+    min-width: 20%;
+}
+
+app-film ::ng-deep .movie {
+    max-height: 449px;
+    height: 100%;
 }
 
 .tabs ::ng-deep {
     .movie {
         position: relative;
+        height: auto;
+        max-height: none;
     
         &:before {
             background: none;
